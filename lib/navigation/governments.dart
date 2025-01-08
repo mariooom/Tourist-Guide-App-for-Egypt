@@ -28,6 +28,7 @@ class Governments extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         title: Text(
           'Governments',
@@ -52,7 +53,7 @@ class Governments extends StatelessWidget {
             ),
             child: InkWell(
               onTap: () {
-                // Navigate to the landmarks page for the selected governorate
+                //to navigate to the landmarks page for the selected governorate
                 Navigator.push(
                   context,
                   MaterialPageRoute(
