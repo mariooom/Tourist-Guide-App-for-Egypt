@@ -121,7 +121,7 @@ class ProfilePage extends StatelessWidget {
                   color: const Color(0xFFbc6c25),
                   onPressed: () {
                     Navigator.of(context).pushReplacement(
-                        MaterialPageRoute(builder: (context) => SignUpPage()));
+                        MaterialPageRoute(builder: (context) => SignUpPage()));      //to return to sign up page
                   },
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10),
