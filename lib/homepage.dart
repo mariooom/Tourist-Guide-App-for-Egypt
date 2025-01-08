@@ -18,22 +18,22 @@ class _HomepageState extends State<Homepage> {
   final storedEmail = SignUpPage.userCredentials['email'];
   int currentPageIndex = 0;
 
-  // List to store favorite places
+  //a list to store favorite places
   final Set<Map<String, String>> _favorites = {};
 
-  // List of pages in the app
+  //a list of pages in the app
   final List<Widget> _pages = [
     HomeContent(),
-    Favourite(favorites: []), // Favorites page
-    Governments(onAddToFavorites: (place) {}), // Placeholder, will be updated
-    ProfilePage(), // Profile page
+    Favourite(favorites: []), 
+    Governments(onAddToFavorites: (place) {}), 
+    ProfilePage(), 
   ];
 
-  // Method to add a place to favorites
+  //method used to add a place to favorites
   void addToFavorites(Map<String, String> place) {
     setState(() {
       _favorites.add(place);
-      // Update the Favourite page with the latest favorites
+      //to update the Favourite page with the latest favorites
       _pages[1] = Favourite(favorites: _favorites.toList());
     });
   }
@@ -41,7 +41,7 @@ class _HomepageState extends State<Homepage> {
   @override
   void initState() {
     super.initState();
-    // Initialize the Governments widget with the addToFavorites function
+    //to initialize the Governments widget with the addToFavorites function
     _pages[2] = Governments(onAddToFavorites: addToFavorites);
   }
 
@@ -114,7 +114,7 @@ class _HomepageState extends State<Homepage> {
         onDestinationSelected: (int index) {
           setState(() {
             currentPageIndex = index;
-            // Update the Favourite page with the latest favorites
+            //to update the Favourite page with the latest favorites
             if (index == 1) {
               _pages[1] = Favourite(favorites: _favorites.toList());
             }
