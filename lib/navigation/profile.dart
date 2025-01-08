@@ -4,8 +4,7 @@ import 'package:tourism_app/signup.dart';
 class ProfilePage extends StatelessWidget {
   String _hashPassword(String password) {
     return '*' *
-        password
-            .length; //function to display asterisks instead of the actual password for security
+        password.length; //function to display password hashed for security
   }
 
   @override
@@ -14,8 +13,7 @@ class ProfilePage extends StatelessWidget {
     final storedLastName = SignUpPage.userCredentials['lastName'] ?? 'N/A';
     final storedEmail = SignUpPage.userCredentials['email'] ?? 'N/A';
     final storedPassword = SignUpPage.userCredentials['password'] ?? 'N/A';
-    final storedPhoneNumber =
-        SignUpPage.userCredentials['phoneNumber'] ?? 'N/A';
+    final storedPhoneNumber = SignUpPage.userCredentials['phoneNumber'] ?? 'N/A';
     final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
 
