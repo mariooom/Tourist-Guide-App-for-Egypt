@@ -8,15 +8,13 @@ class Favourite extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Favorites'),
-        backgroundColor: Color(0xFFf5ebe0),
-      ),
+      backgroundColor: Colors.white,
       body: ListView.builder(
         padding: EdgeInsets.all(16.0),
         itemCount: favorites.length,
         itemBuilder: (context, index) {
           final place = favorites[index];
+          
           return Card(
             color: Color(0xFFf5ebe0),
             child: ListTile(
