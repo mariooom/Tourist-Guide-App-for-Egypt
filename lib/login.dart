@@ -26,7 +26,7 @@ class _LogInPageState extends State<LogInPage> {
       final storedEmail = SignUpPage.userCredentials['email'];
       final storedPassword = SignUpPage.userCredentials['password'];
 
-      //to compare entered credentials with stored credentials
+    //to compare entered credentials with stored credentials
       if (emailController.text == storedEmail &&
           passwordController.text == storedPassword) {
         _showSnackBar('Logged in successfully');
@@ -88,8 +88,8 @@ class _LogInPageState extends State<LogInPage> {
                         if (value == null || value.isEmpty) {
                           return 'Email cannot be empty';
                         }
-                        if (!value.contains('@')) {
-                          return 'Email must contain @';
+                        if (!value.contains('@','.com' as int)) {
+                          return 'Email must contain @ or .com';
                         }
                         return null;
                       },
