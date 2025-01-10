@@ -29,23 +29,13 @@ class Governments extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: AppBar(
-        title: Text(
-          'Governments',
-          style: TextStyle(
-            fontSize: 26,
-            fontWeight: FontWeight.bold,
-            fontFamily: 'Cinzel',
-          ),
-        ),
-        backgroundColor: Color(0xFFf5ebe0),
-      ),
-      body: ListView.builder(
+       body: ListView.builder(
         padding: EdgeInsets.all(16.0),
         itemCount: governorates.length,
         itemBuilder: (context, index) {
           final governorate = governorates[index];
           return Card(
+            color: Color(0xFFf5ebe0),
             elevation: 5.0,
             margin: EdgeInsets.only(bottom: 16.0),
             shape: RoundedRectangleBorder(
@@ -72,8 +62,10 @@ class Governments extends StatelessWidget {
                         BorderRadius.vertical(top: Radius.circular(10.0)),
                     child: Image.asset(
                       governorate['image']!,
-                      height: 150.0,
+                      height: 170.0,
+                      width: 170.0,
                       fit: BoxFit.cover,
+                      alignment: Alignment.center,
                     ),
                   ),
                   Padding(
