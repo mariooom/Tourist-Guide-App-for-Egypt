@@ -47,6 +47,11 @@ class Suggestions extends StatelessWidget {
 
   Widget _buildPlaceCard(BuildContext context, String name, String imagePath) {
     return Card(
+      elevation: 5.0,
+            margin: EdgeInsets.only(bottom: 16.0),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10.0),
+            ),
       color: Color(0xFFf5ebe0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
