@@ -16,24 +16,26 @@ class Homepage extends StatefulWidget {
 
 class _HomepageState extends State<Homepage> {
   final storedEmail = SignUpPage.userCredentials['email'];
+  final storedFirstName = SignUpPage.userCredentials['firstName'] ?? 'N/A';
+  final storedLastName = SignUpPage.userCredentials['lastName'] ?? 'N/A';
   int currentPageIndex = 0;
 
-  //a list to store favorite places
+  // List to store favorite places
   final Set<Map<String, String>> _favorites = {};
 
-  //a list of pages in the app
+  // List of navigation pages in the app
   final List<Widget> _pages = [
     HomeContent(),
     Favourite(favorites: []), 
-    Governments(onAddToFavorites: (place) {}), 
+    Governments(onAddToFavorites: (place) {}), // Placeholder, will be updated
     ProfilePage(), 
   ];
 
-  //method used to add a place to favorites
+  // Method to add a place to favorites
   void addToFavorites(Map<String, String> place) {
     setState(() {
       _favorites.add(place);
-      //to update the Favourite page with the latest favorites
+      // Update the Favourite page with the latest favorites
       _pages[1] = Favourite(favorites: _favorites.toList());
     });
   }
@@ -41,7 +43,7 @@ class _HomepageState extends State<Homepage> {
   @override
   void initState() {
     super.initState();
-    //to initialize the Governments widget with the addToFavorites function
+    // Initialize the Governments widget with the addToFavorites function
     _pages[2] = Governments(onAddToFavorites: addToFavorites);
   }
 
@@ -101,7 +103,7 @@ class _HomepageState extends State<Homepage> {
         ),
       ),
       body: OpenContainer(
-        transitionDuration: Duration(seconds: 1),
+        transitionDuration: Duration(seconds: 2),
         closedBuilder: (context, action) {
           return _pages[currentPageIndex];
         },
@@ -110,6 +112,8 @@ class _HomepageState extends State<Homepage> {
         },
       ),
       bottomNavigationBar: NavigationBar(
+        height: 70,
+        animationDuration: Duration(seconds: 2),
         backgroundColor: Color(0xFFf5ebe0),
         onDestinationSelected: (int index) {
           setState(() {
@@ -188,7 +192,8 @@ class HomeContent extends StatelessWidget {
                   height: screenHeight * 0.35,
                   child: Suggestions(
                     onAddToFavorites: (place) {
-                      final homeState = context.findAncestorStateOfType<_HomepageState>();
+                      final homeState =
+                          context.findAncestorStateOfType<_HomepageState>();
                       homeState?.addToFavorites(place);
                     },
                   ),
@@ -208,7 +213,8 @@ class HomeContent extends StatelessWidget {
                   height: screenHeight * 0.4,
                   child: Popular(
                     onAddToFavorites: (place) {
-                      final homeState = context.findAncestorStateOfType<_HomepageState>();
+                      final homeState =
+                          context.findAncestorStateOfType<_HomepageState>();
                       homeState?.addToFavorites(place);
                     },
                   ),
