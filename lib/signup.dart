@@ -154,8 +154,8 @@ class _SignUpPageState extends State<SignUpPage> {
                         if (value == null || value.isEmpty) {
                           return 'Email cannot be empty';
                         }
-                        if (!value.contains('@')) {
-                          return 'Email must contain @';
+                        if (!value.contains('@', '.com' as int)) {
+                          return 'Email must contain @ or .com';
                         }
                         return null;
                       },
