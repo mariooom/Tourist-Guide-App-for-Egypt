@@ -4,7 +4,7 @@ class LandmarksPage extends StatelessWidget {
   final String governorate;
   final Function(Map<String, String>) onAddToFavorites;
 
-  LandmarksPage({required this.governorate, required this.onAddToFavorites});
+  LandmarksPage({super.key, required this.governorate, required this.onAddToFavorites});
 
   final Map<String, List<Map<String, String>>> landmarks = {
     'Cairo': [
@@ -31,8 +31,12 @@ class LandmarksPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
-        title: Text('Landmarks in $governorate'),
+        title: Text(
+          'Landmarks in $governorate',
+          style: TextStyle(fontFamily: 'Cinzel'),
+        ),
         backgroundColor: Color(0xFFf5ebe0),
       ),
       body: ListView.builder(
@@ -41,6 +45,7 @@ class LandmarksPage extends StatelessWidget {
         itemBuilder: (context, index) {
           final landmark = landmarks[governorate]![index];
           return Card(
+            color: Color(0xFFf5ebe0),
             elevation: 5.0,
             margin: EdgeInsets.only(bottom: 16.0),
             shape: RoundedRectangleBorder(
@@ -54,8 +59,10 @@ class LandmarksPage extends StatelessWidget {
                       BorderRadius.vertical(top: Radius.circular(10.0)),
                   child: Image.asset(
                     landmark['image']!,
-                    height: 150.0,
+                    height: 170.0,
+                    width: 170.0,
                     fit: BoxFit.cover,
+                    alignment: Alignment.center,
                   ),
                 ),
                 Padding(
