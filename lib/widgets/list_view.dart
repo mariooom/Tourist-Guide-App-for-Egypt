@@ -60,6 +60,11 @@ class Popular extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(12.0),
       child: Card(
+        elevation: 5.0,
+        margin: EdgeInsets.only(bottom: 16.0),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10.0),
+        ),
         borderOnForeground: true,
         color: Color(0xFFf5ebe0),
         child: Padding(
